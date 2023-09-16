@@ -1,0 +1,5 @@
+Welcome to Nakamoto Market!
+
+Please verify your email by visiting the following URL:
+
+https://nakamoto.market/sign-up/verify/{{ code }}

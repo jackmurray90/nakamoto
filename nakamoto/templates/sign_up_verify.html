@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if not no_passwords %}
+      <div class="mui-textfield mui-textfield--float-label">
+        <input type="password" name="password"/>
+        <label>Password *</label>
+      </div>
+      <div class="mui-textfield mui-textfield--float-label">
+        <input type="password" name="password_verify"/>
+        <label>Password verify *</label>
+      </div>
+      <button type="submit" class="mui-btn mui-btn--primary mui-btn--raised">Create account</button>
+    {% endif %}
+  </form>
+{% endblock %}
