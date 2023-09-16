@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from nakamoto.views import IndexView, LoginView, SignUpView, SignUpVerifyView
+from nakamoto.views import IndexView, LoginView, LogoutView, SignUpView, SignUpVerifyView
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
     path("login", LoginView.as_view(), name="login"),
+    path("logout", LogoutView.as_view(), name="logout"),
     path("sign-up", SignUpView.as_view(), name="sign-up"),
     path("sign-up/verify/<code>", SignUpVerifyView.as_view(), name="sign-up-verify"),
     path("admin/", admin.site.urls),

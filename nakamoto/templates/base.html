@@ -9,10 +9,27 @@
   li { list-style: none; padding: 1em; background-color: #999; margin: 0; }
   li.error { background-color: #c99; }
   li.success { background-color: #9c9; }
+  .nav { padding: 0; margin: 0; width: 100%; border-bottom: 1px solid #ccc; }
+  .nav h1 { padding: 0.2em 1em; margin: 0; width: 100%; }
+  .nav td { padding: 0; margin: 0; white-space: nowrap; }
+  .nav td a { padding: 1em; }
 </style>
 <link href="{% static "mui.min.css" %}" rel="stylesheet" type="text/css" />
 <script src="{% static "mui.min.js" %}"></script>
+<table class="nav">
+  <tr>
+    <td><h1>Nakamoto Exchange</h1></td>
+    <td width="100%"></td>
+    {% if user.is_authenticated %}
+      <td><a href="/wallets">Wallets</a></td>
+      <td><a href="/markets">Markets</a></td>
+      <td><a href="/logout">Logout</a></td>
+    {% else %}
+      <td><a href="/sign-up">Sign Up</a></td>
+      <td><a href="/login">Login</a></td>
+    {% endif %}
+  </tr>
+</table>
 <div class="page">
-  <h1>Nakamoto Exchange</h1>
   {% block content %}{% endblock %}
 </div>

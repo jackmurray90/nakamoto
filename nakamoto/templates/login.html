@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+  <h2>Login</h2>
   <form method="post">
     {% csrf_token %}
     {% if messages %}
@@ -16,6 +17,10 @@
     <div class="mui-textfield mui-textfield--float-label">
       <input type="password" name="password"/>
       <label>Password *</label>
+    </div>
+    <div class="mui-textfield mui-textfield--float-label">
+      <input type="text" name="otp"/>
+      <label>Two factor code *</label>
     </div>
     <button type="submit" class="mui-btn mui-btn--primary mui-btn--raised">Log In</button>
   </form>
