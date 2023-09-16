@@ -1,2 +1,4 @@
 django
 black
+pyotp
+qrcode
