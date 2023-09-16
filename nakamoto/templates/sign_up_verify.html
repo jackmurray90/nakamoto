@@ -1,33 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-  <form method="post">
-    {% csrf_token %}
-    {% if messages %}
-      <ul>
-        {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    {% if not no_passwords %}
-      <p>Set your password:</p>
-      <div class="mui-textfield mui-textfield--float-label">
-        <input type="password" name="password"/>
-        <label>Password *</label>
-      </div>
-      <div class="mui-textfield mui-textfield--float-label">
-        <input type="password" name="password_verify"/>
-        <label>Password verify *</label>
-      </div>
-      <p>
-        Scan the following QR code using the Google Authenticator app to set up 2nd factor authentication:
-      </p>
-      <p><img src="{{ qrcode }}" width="200px"/></p>
-      <div class="mui-textfield mui-textfield--float-label">
-        <input type="text" name="otp"/>
-        <label>Two factor code *</label>
-      </div>
-      <button type="submit" class="mui-btn mui-btn--primary mui-btn--raised">Create account</button>
-    {% endif %}
-  </form>
+  <div class="page-center">
+    <form method="post">
+      {% csrf_token %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if not no_passwords %}
+        <p>Set your password:</p>
+        <div class="mui-textfield mui-textfield--float-label">
+          <input type="password" name="password"/>
+          <label>Password *</label>
+        </div>
+        <div class="mui-textfield mui-textfield--float-label">
+          <input type="password" name="password_verify"/>
+          <label>Password verify *</label>
+        </div>
+        <p>
+          Scan the following QR code using the Google Authenticator app to set up 2nd factor authentication:
+        </p>
+        <p><img src="{{ qrcode }}" width="200px"/></p>
+        <div class="mui-textfield mui-textfield--float-label">
+          <input type="text" name="otp"/>
+          <label>Two factor code *</label>
+        </div>
+        <button type="submit" class="mui-btn mui-btn--primary mui-btn--raised">Create account</button>
+      {% endif %}
+    </form>
+  </div>
 {% endblock %}

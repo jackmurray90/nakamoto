@@ -2,7 +2,7 @@
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  .page { margin: 0 auto; text-align: center; width: 40em; }
+  .page-center { margin: 0 auto; text-align: center; width: 40em; }
   h1 { font-size: normal; padding: 0; margin: 1em; }
   form { width: 30em; margin: 0 auto; text-align: left; }
   ul { margin: 0; padding: 0; list-style: none; }
@@ -18,7 +18,7 @@
 <script src="{% static "mui.min.js" %}"></script>
 <table class="nav">
   <tr>
-    <td><h1>Nakamoto Exchange</h1></td>
+    <td><h1>Nakamoto</h1></td>
     <td width="100%"></td>
     {% if user.is_authenticated %}
       <td><a href="/wallets">Wallets</a></td>
@@ -30,6 +30,4 @@
     {% endif %}
   </tr>
 </table>
-<div class="page">
-  {% block content %}{% endblock %}
-</div>
+{% block content %}{% endblock %}
